@@ -1,0 +1,49 @@
+# Copyright OPNMeta, Ltd. All Rights Reserved.
+# SPDX-License-Identifier: APACHE-2.0
+
+## @section Global parameters
+## Global Terraform config parameters
+## Please, note that this will override how terraform create AWS resources, configured to use the global value
+##
+
+## @param global.backend config terraform backend type
+##
+
+
+global:
+  domain_name: example.com
+  ## domain name for the website
+  ##
+  region: eu-central-1
+  ## region for the AWS resources
+  ##
+  region_id: awseuc1
+  ## region id for the AWS resources
+  ##eg. awseuc1 for eu-central-1 
+  ##eg. awsuse1 for us-east-1
+  ##
+
+## @section tags parameters define tags for AWS resources
+##
+resources_tags:
+  customer_name: "OPNMeta"
+  customer_short: "om"
+  project_number: "OMBJ-24-P00012"
+  project_name: "training"
+  project_short: "training"
+  hostname_domain: "example.com"
+  location_owner: "aws"
+  type: "standard"
+
+## @section provider_info parameters define provider information
+## we currently support Assuming IAM roles to configure the provider
+##
+
+provider_info:
+  assume_role: 
+    region: eu-central-1
+    region_id: awseuc1
+    profile: opnmeta-aws-access-ci
+    main:
+      main_role: arn:aws:iam::*****************:role/ManagedServices-IAMAccess
+      main_region: eu-central-1
