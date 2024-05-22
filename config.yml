@@ -35,6 +35,14 @@ resources_tags:
   location_owner: "aws"
   type: "standard"
 
+## @section aws budgets parameters 
+##
+aws_budget:
+  budget_limit: 10
+  budget_currency: USD
+  budget_notification_emails: ["info@example.com"]
+
+
 ## @section provider_info parameters define provider information
 ## we currently support Assuming IAM roles to configure the provider
 ##
@@ -45,5 +53,5 @@ provider_info:
     region_id: awseuc1
     profile: opnmeta-aws-access-ci
     main:
-      main_role: arn:aws:iam::*****************:role/ManagedServices-IAMAccess
+      main_role: arn:aws:iam::905418463652:role/ManagedServices-IAMAccess
       main_region: eu-central-1
